@@ -104,6 +104,7 @@ def run(capture_date=datetime.datetime.today().date()):
 
 
 def main():
+
     my_settings.fill_settings()
     Loc.fill_file_locations()
     PTL_FileHandler.ensure_dir(Loc.log_folder)
@@ -115,7 +116,7 @@ def main():
     # create Logger
     logger = logging.getLogger(__name__)
     logger.info("user: {} on computer: {}".format(os.getlogin(), os.environ['COMPUTERNAME']))
-
+    Naive_scheduler()
     backup_used_settings()
 
     # by default, today's capture date is run. You can fill in any days ago
